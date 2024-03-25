@@ -14,7 +14,6 @@
 
 # openssl-1.1.1
 rm -rf package/libs/openssl
-# svn co https://github.com/istoreos/istoreos/trunk/package/libs/openssl package/libs/openssl
 git clone https://github.com/istoreos/istoreos.git package/istoreos 
 cp -r package/istoreos/package/libs/openssl package/libs/
 rm -rf package/istoreos
@@ -25,7 +24,7 @@ sed -i 's/192.168.1.1/192.168.1.110/g' package/base-files/files/bin/config_gener
 # poweroff
 git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 
-#主题
+# 主题
 rm -rf feeds/luci/applications/luci-app-argon-config
 rm -rf feeds/kenzo/luci-app-argon-config
 git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git feeds/luci/applications/luci-app-argon-config
@@ -42,10 +41,6 @@ cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-s
 # golang1.22
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-
-# curl8.5
-# cp -f $GITHUB_WORKSPACE/patch/net/curl/Makefile feeds/packages/net/curl/Makefile
-# cp -f $GITHUB_WORKSPACE/patch/net/curl/200-no_docs_tests.patch feeds/packages/net/curl/patches/200-no_docs_tests.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
