@@ -13,13 +13,13 @@
 # git reset --hard a2a0e5b9f6ce420398487ea29a85b0b0c49c9087
 
 # openssl-1.1.1
-rm -rf package/libs/openssl
-git clone https://github.com/istoreos/istoreos.git package/istoreos 
-cp -r package/istoreos/package/libs/openssl package/libs/
-rm -rf package/istoreos
+# rm -rf package/libs/openssl
+# git clone https://github.com/istoreos/istoreos.git package/istoreos 
+# cp -r package/istoreos/package/libs/openssl package/libs/
+# rm -rf package/istoreos
 
 # 修改默认IP
-sed -i 's/192.168.1.1/192.168.1.110/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.100/g' package/base-files/files/bin/config_generate
 
 # poweroff
 git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
